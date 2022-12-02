@@ -99,4 +99,22 @@ public function edit(Request $request, ManagerRegistry $doctrine, $id): Response
     
     return $this->redirectToRoute('events');
 }
-}
+
+#[Route('/about', name: 'about')]
+   public function about(): Response
+   {
+       return $this->render('events/about.html.twig', [
+           'controller_name' => 'EventsController',
+       ]);
+   } 
+   
+
+   #[Route('/contact', name: 'contact')]
+   public function contact(): Response
+   {
+       return $this->render('events/contact.html.twig', [
+           'controller_name' => 'EventsController',
+       ]);
+   }
+
+  }
