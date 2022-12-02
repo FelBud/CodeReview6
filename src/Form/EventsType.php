@@ -42,6 +42,12 @@ class EventsType extends AbstractType
         ->add('address', TextType::class, [
             'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']
         ])
+        ->add('zip', TextType::class, [
+            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']
+        ])
+        ->add('city', TextType::class, [
+            'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']
+        ])
         ->add('url', TextType::class, [
             'attr' => ['class' => 'form-control', 'style' => 'margin-bottom:15px']
         ])

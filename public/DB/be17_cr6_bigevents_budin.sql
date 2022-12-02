@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 02. Dez 2022 um 13:58
+-- Erstellungszeit: 02. Dez 2022 um 14:13
 -- Server-Version: 10.4.25-MariaDB
 -- PHP-Version: 8.1.10
 
@@ -40,7 +40,8 @@ CREATE TABLE `doctrine_migration_versions` (
 --
 
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20221202084145', '2022-12-02 09:42:05', 203);
+('DoctrineMigrations\\Version20221202084145', '2022-12-02 09:42:05', 203),
+('DoctrineMigrations\\Version20221202130508', '2022-12-02 14:05:28', 977);
 
 -- --------------------------------------------------------
 
@@ -59,18 +60,21 @@ CREATE TABLE `events` (
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `zip` int(11) DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Daten für Tabelle `events`
 --
 
-INSERT INTO `events` (`id`, `name`, `date`, `description`, `image`, `capacity`, `email`, `phone`, `address`, `url`, `type`) VALUES
-(1, 'Concert', '2022-12-16 20:00:00', 'Concert of the best Band of the World', 'https://crimerunners.at/wp-content/uploads/2018/08/audience-868074_1280--1152x630.jpg', 1000, 'test@mail.com', '+431234567890', 'Music Hall Street', 'music.info', 'Music'),
-(2, 'Theatre', '2022-12-19 18:00:00', 'Play about an actor which got old and grumpy.', 'https://crimerunners.at/wp-content/uploads/2018/08/audience-868074_1280--1152x630.jpg', 350, 'theatre@mail.com', '+43664123455789', 'Theatre Address 12', 'theatre-play.com', 'Theatre'),
-(3, 'Movie', '2023-01-01 16:00:00', 'Best Movie this year. Got many Oscars. Movie about a coder who wil get rich for making CRUDs.', 'https://crimerunners.at/wp-content/uploads/2018/08/audience-868074_1280--1152x630.jpg', 200, 'movie@mail.com', '+43 1 234556789', 'Movie Theatre', 'movie-film.org', 'Movie'),
-(5, 'Football Match', '2023-01-16 16:00:00', 'Match between Vienna SC and Last Vienna FC', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sydney-Galaxy-homebush.jpg/800px-Sydney-Galaxy-homebush.jpg', 1500, 'sports@mail.com', '+43 1 234556789', 'Stadium Plaza', 'football.org', 'Sport');
+INSERT INTO `events` (`id`, `name`, `date`, `description`, `image`, `capacity`, `email`, `phone`, `address`, `url`, `type`, `zip`, `city`) VALUES
+(1, 'Concert', '2022-12-16 20:00:00', 'Concert of the best Band of the World', 'https://crimerunners.at/wp-content/uploads/2018/08/audience-868074_1280--1152x630.jpg', 1000, 'test@mail.com', '+431234567890', 'Music Hall Street', 'music.info', 'Music', 1010, 'Vienna'),
+(2, 'Theatre', '2022-12-19 18:00:00', 'Play about an actor which got old and grumpy.', 'https://crimerunners.at/wp-content/uploads/2018/08/audience-868074_1280--1152x630.jpg', 350, 'theatre@mail.com', '+43664123455789', 'Theatre Address 12', 'theatre-play.com', 'Theatre', 1010, 'Vienna'),
+(3, 'Movie', '2023-01-01 16:00:00', 'Best Movie this year. Got many Oscars. Movie about a coder who wil get rich for making CRUDs.', 'https://crimerunners.at/wp-content/uploads/2018/08/audience-868074_1280--1152x630.jpg', 200, 'movie@mail.com', '+43 1 234556789', 'Movie Theatre', 'movie-film.org', 'Movie', 8020, 'Graz'),
+(5, 'Football Match', '2023-01-16 16:00:00', 'Match between Vienna SC and Last Vienna FC', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sydney-Galaxy-homebush.jpg/800px-Sydney-Galaxy-homebush.jpg', 1500, 'sports@mail.com', '+43 1 234556789', 'Stadium Plaza', 'football.org', 'Sport', 8020, 'Graz'),
+(6, 'Football Match', '2023-03-01 18:00:00', 'Match between Salzburg SC and Last Vienna FC', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Sydney-Galaxy-homebush.jpg/800px-Sydney-Galaxy-homebush.jpg', 2000, 'football@mail.com', '+43 662 122345678', 'Stadium Plaza', 'sports-info.com', 'Sport', 5020, 'Salzburg');
 
 -- --------------------------------------------------------
 
@@ -121,7 +125,7 @@ ALTER TABLE `messenger_messages`
 -- AUTO_INCREMENT für Tabelle `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT für Tabelle `messenger_messages`

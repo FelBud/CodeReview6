@@ -44,6 +44,12 @@ class Events
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $type = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $Zip = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $City = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -165,6 +171,30 @@ class Events
     public function setType(?string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getZip(): ?int
+    {
+        return $this->Zip;
+    }
+
+    public function setZip(?int $Zip): self
+    {
+        $this->Zip = $Zip;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->City;
+    }
+
+    public function setCity(?string $City): self
+    {
+        $this->City = $City;
 
         return $this;
     }
